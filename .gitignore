@@ -6,6 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
+config.js
+13-1-Student_Resources/*
+13-2-Student_Resources/*
+
 # Distribution / packaging
 .Python
 build/
