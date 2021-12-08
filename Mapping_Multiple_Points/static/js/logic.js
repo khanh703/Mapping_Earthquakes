@@ -14,4 +14,12 @@ let streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/dark-v10/tile
 // Then we add our 'graymap' tile layer to the map.
 streets.addTo(map);
 
-var marker = L.marker([51.5, -0.09]).addTo(map);
+// Loop through the cities array and create one marker for each city.
+cityData.forEach((city)=> {
+  console.log(city)
+  let popup = L.popup().setContent("<h2>"+city.city +", " +city.state+ "</h2><hr><h3>Population " + Number(city.population).toLocaleString()+"</h3>");
+  //L.marker(city.location).bindPopup(popup).addTo(map);
+  // add circles for practice
+  let radius_value = Number(city.population) / 30;
+  L.circle(city.location, {radius: radius_value, color: "green", fillColor:"blue"}).bindPopup(popup).addTo(map);
+});
